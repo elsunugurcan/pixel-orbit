@@ -1,0 +1,24 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face { font-family: "Poppins"; src: url("/fonts/Poppins-Regular.ttf") format("truetype"); font-weight: 400; font-display: swap; }
+@font-face { font-family: "Poppins"; src: url("/fonts/Poppins-Bold.ttf") format("truetype"); font-weight: 700; font-display: swap; }
+
+html, body, #root { height: 100%; margin: 0; overflow: hidden; background: #04050d; color: #f5f3ff; font-family: Poppins, system-ui, sans-serif; -webkit-font-smoothing: antialiased; touch-action: none; user-select: none; }
+canvas { display: block; outline: none; }
+
+@layer components {
+  .panel { @apply rounded-2xl border border-white/10 bg-panel/80 shadow-[0_10px_40px_-15px_rgba(0,0,0,.8)] backdrop-blur-md; }
+  .btn { @apply inline-flex items-center justify-center gap-2 rounded-xl px-4 py-2.5 text-sm font-bold transition active:scale-95 disabled:opacity-40; }
+  .btn-primary { @apply btn bg-accent text-white hover:bg-purple-500 shadow-[0_0_24px_rgba(168,85,247,.45)]; }
+  .btn-ghost { @apply btn border border-white/15 bg-white/5 text-white hover:bg-white/10; }
+  .chip { @apply inline-flex items-center gap-1.5 rounded-lg bg-white/5 px-2 py-1 text-xs font-bold tabular-nums; }
+  .pixel { image-rendering: pixelated; shape-rendering: crispEdges; }
+}
+@keyframes toast-in { from { opacity: 0; transform: translateY(-8px) scale(.96); } to { opacity: 1; transform: none; } }
+.toast-in { animation: toast-in .25s cubic-bezier(.2,.7,.2,1) both; }
+@keyframes pulse-red { 0%,100% { box-shadow: 0 0 0 0 rgba(239,68,68,.6);} 50% { box-shadow: 0 0 0 8px rgba(239,68,68,0);} }
+.pulse-red { animation: pulse-red 1.2s infinite; }
+@keyframes float { 0%,100% { transform: translateY(0);} 50% { transform: translateY(-6px);} }
+.float { animation: float 3s ease-in-out infinite; }
